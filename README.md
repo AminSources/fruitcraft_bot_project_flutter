@@ -1,6 +1,6 @@
 # Fruitcraft BOT
 
-![Version](https://img.shields.io/badge/version-Under Development-yellow)
+![Version](https://img.shields.io/badge/version-Under.Development-yellow)
 ![Based On](https://img.shields.io/badge/Base-Flutter-blue)
 ![lang](https://img.shields.io/badge/lang-dart-9cf)
 
