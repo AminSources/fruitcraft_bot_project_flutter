@@ -35,6 +35,10 @@ class AuthRepositoryImpl extends AuthRepository {
         throw AppException(errorMessage);
       }
 
+      if (statusCode == 404) {
+        throw AppException(errorMessage);
+      }
+
       if (statusCode == null) {
         throw AppException(errorMessage);
       }

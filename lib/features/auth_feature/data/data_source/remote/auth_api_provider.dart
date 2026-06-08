@@ -8,15 +8,19 @@ class AuthApiProvider {
 
   //? login method
   Future<dynamic> login(LoginParams loginParams) async {
+    //? send post request to login endpoint
     Response response = await dio.post(
       "http://192.168.1.101:5000/api/login",
       data: {"email": loginParams.email, "password": loginParams.password},
     );
+
+    //? return response
     return response;
   }
 
   //? register method
   Future<dynamic> register(RegisterParams registerParams) async {
+    //? send post request to register endpoint
     Response response = await dio.post(
       "http://192.168.1.101:5000/api/register",
       data: {
@@ -25,6 +29,8 @@ class AuthApiProvider {
         "password": registerParams.password,
       },
     );
+
+    //? return response
     return response;
   }
 }

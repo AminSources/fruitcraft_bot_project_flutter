@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruitcraft_bot_project/core/session/session_manager.dart';
 import 'package:fruitcraft_bot_project/core/widgets/txt.dart';
 import 'package:fruitcraft_bot_project/features/auth_feature/presentation/bloc/auth_bloc.dart';
 import 'package:fruitcraft_bot_project/features/auth_feature/presentation/bloc/auth_status.dart';
+import 'package:fruitcraft_bot_project/locator.dart';
 
 class AuthSkeleton extends StatelessWidget {
   final List<String> labels;
@@ -107,8 +109,14 @@ class AuthSkeleton extends StatelessWidget {
                     },
                     listener: (context, state) {
                       if (state.authStatus is AuthSuccess) {
-                        //? push to bot page
-                        Navigator.pushReplacementNamed(context, '/bot');
+                        //? save session token
+                        final sessionManager = locator<SessionManager>();
+                        sessionManager.saveToken(
+                          (state.authStatus as AuthSuccess).user.token,
+                        );
+
+                        //? push to home page
+                        Navigator.pushReplacementNamed(context, '/home');
                       }
                     },
                   ),

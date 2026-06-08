@@ -49,8 +49,7 @@ class LoginPage extends StatelessWidget {
             context.read<AuthBloc>().add(ResetAuthEvent());
 
             //? navigation to register page
-            Navigator.pushNamed(context, "/register");
-            //TODO the navigator must be change to pushReplacement , also for login page.
+            Navigator.pushReplacementNamed(context, "/register");
           },
         ),
       ),
