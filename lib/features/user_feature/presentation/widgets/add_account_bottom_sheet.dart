@@ -33,13 +33,6 @@ class _AddAccountBottomSheetState extends State<AddAccountBottomSheet> {
           txt("Add Account", size: 18.sp, fontWeight: FontWeight.bold),
           SizedBox(height: 10.h),
 
-          //* account name
-          TextField(
-            controller: accountNameController,
-            decoration: const InputDecoration(labelText: "Account Name"),
-          ),
-          SizedBox(height: 10.h),
-
           //* restore key text field
           TextField(
             controller: restoreKeyController,
@@ -94,7 +87,6 @@ class _AddAccountBottomSheetState extends State<AddAccountBottomSheet> {
                       //* create fruit account params
                       final fruitAccountParams = FruitAccountParams(
                         token: widget.token,
-                        name: accountNameController.text,
                         restoreKey: restoreKeyController.text,
                         licenseKey: licenseKeyController.text,
                       );

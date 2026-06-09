@@ -6,6 +6,8 @@ import 'package:fruitcraft_bot_project/core/widgets/txt.dart';
 import 'package:fruitcraft_bot_project/features/user_feature/presentation/bloc/user_bloc/user_bloc.dart';
 import 'package:fruitcraft_bot_project/features/user_feature/presentation/bloc/user_bloc/user_status.dart';
 import 'package:fruitcraft_bot_project/features/user_feature/presentation/widgets/add_account_bottom_sheet.dart';
+import 'package:fruitcraft_bot_project/features/user_feature/presentation/widgets/empty_list.dart';
+import 'package:fruitcraft_bot_project/features/user_feature/presentation/widgets/fruit_account_card.dart';
 import 'package:fruitcraft_bot_project/locator.dart';
 
 class HomePage extends StatefulWidget {
@@ -79,44 +81,17 @@ class _HomePageState extends State<HomePage> {
 
                     //* user accounts
                     userSuccess.userEntity.fruitAccounts.isEmpty
-                        ? Expanded(
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  //* image
-                                  Image.asset(
-                                    "lib/assets/images/sarhang.png",
-                                    width: 100.w,
-                                    height: 100.h,
-                                  ),
-                                  SizedBox(height: 15.h),
-
-                                  //* txt
-                                  txt(
-                                    "You don't have any accounts yet\ntap ' + ' button to add one",
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )
+                        ? EmptyList()
                         : ListView.builder(
                             shrinkWrap: true,
                             itemCount:
                                 userSuccess.userEntity.fruitAccounts.length,
                             itemBuilder: (context, index) {
+                              //* get account
                               final account =
                                   userSuccess.userEntity.fruitAccounts[index];
-                              return Card(
-                                child: Column(
-                                  children: [
-                                    txt("name: ${account.name}"),
-                                    txt("restore key: ${account.restoreKey}"),
-                                    txt("license key: ${account.licenseKey}"),
-                                  ],
-                                ),
-                              );
+
+                              return FruitAccountCard(account: account);
                             },
                           ),
                   ],

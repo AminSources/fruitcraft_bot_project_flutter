@@ -1,3 +1,4 @@
+import 'package:fruitcraft_bot_project/features/user_feature/domain/entities/fruit_account_entity.dart';
 import 'package:fruitcraft_bot_project/features/user_feature/domain/entities/user_entity.dart';
 
 class UserModel extends UserEntity {

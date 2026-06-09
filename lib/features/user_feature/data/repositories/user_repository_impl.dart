@@ -76,6 +76,10 @@ class UserRepositoryImpl extends UserRepository {
         throw AppException(errorMessage);
       }
 
+      if (statusCode == 422) {
+        throw AppException("Token is invalid");
+      }
+
       if (statusCode == null) {
         throw AppException(errorMessage);
       }

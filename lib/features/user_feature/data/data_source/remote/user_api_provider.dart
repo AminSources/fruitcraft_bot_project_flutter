@@ -22,7 +22,6 @@ class UserApiProvider {
     Response response = await dio.post(
       "http://192.168.1.101:5000/api/fruit_account/add",
       data: {
-        "name": fruitAccountParams.name,
         "restore_key": fruitAccountParams.restoreKey,
         "license_key": fruitAccountParams.licenseKey,
       },

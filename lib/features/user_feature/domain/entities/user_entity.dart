@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:fruitcraft_bot_project/features/user_feature/domain/entities/fruit_account_entity.dart';
 
 class UserEntity extends Equatable {
   final String name;
@@ -15,19 +16,4 @@ class UserEntity extends Equatable {
 
   @override
   List<Object?> get props => [name, email, password, fruitAccounts];
-}
-
-class FruitAccountEntity extends Equatable {
-  final String name;
-  final String restoreKey;
-  final String licenseKey;
-
-  const FruitAccountEntity({
-    required this.name,
-    required this.restoreKey,
-    required this.licenseKey,
-  });
-
-  @override
-  List<Object?> get props => [name, restoreKey, licenseKey];
 }
