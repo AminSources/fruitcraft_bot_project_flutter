@@ -10,9 +10,9 @@ import 'package:fruitcraft_bot_project/features/auth_feature/domain/repositories
 
 class AuthRepositoryImpl extends AuthRepository {
   //* initialize auth api provider
-  AuthApiProvider authApiProvider = AuthApiProvider();
+  AuthApiProvider authApiProvider;
 
-  AuthRepositoryImpl(AuthApiProvider authApiProvider);
+  AuthRepositoryImpl(this.authApiProvider);
 
   @override
   Future<AuthEntity> login(LoginParams loginParams) async {

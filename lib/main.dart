@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitcraft_bot_project/core/routes/routes.dart';
 import 'package:fruitcraft_bot_project/core/themes/app_theme.dart';
 import 'package:fruitcraft_bot_project/features/auth_feature/presentation/bloc/auth_bloc.dart';
+import 'package:fruitcraft_bot_project/features/fruitbot_feature/presentation/bloc/fruitbot_bloc.dart';
 import 'package:fruitcraft_bot_project/features/user_feature/presentation/bloc/fruit_account_bloc/fruit_account_bloc.dart';
 import 'package:fruitcraft_bot_project/features/user_feature/presentation/bloc/user_bloc/user_bloc.dart';
 import 'package:fruitcraft_bot_project/locator.dart';
@@ -24,6 +25,9 @@ void main() {
 
         //* initialize fruit account bloc
         BlocProvider<FruitAccountBloc>(create: (context) => locator()),
+
+        //* initialize fruit bot bloc
+        BlocProvider<FruitbotBloc>(create: (context) => locator()),
       ],
       child: const MyApp(),
     ),
